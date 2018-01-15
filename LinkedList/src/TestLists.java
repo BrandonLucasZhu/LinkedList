@@ -21,8 +21,20 @@ public class TestLists {
 		System.out.print("Move index 2 to head \n");
 		L.moveNodeToBeginning(2);
 		L.showLL();
-		L.moveNodeFromAToB(1, 2);
+		
+		L.addToTail(1);
+		L.addToTail(2);
+		L.addToTail(3);
+		System.out.print("Append 1,2,3 to tail and swap index 1 and 4 \n");
+		L.swapNodeValue(1, 4);
 		L.showLL();
+		
+		System.out.print("Append to head \n");
+		
+		L.addToHead(8);
+		L.showLL();
+		
+		
 	}
 	
 	

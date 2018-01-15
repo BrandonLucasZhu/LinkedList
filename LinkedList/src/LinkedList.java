@@ -2,10 +2,12 @@
 public class LinkedList {
 
 	public Node head;
+	public Node tail;
 	public int listLength;
 	
 	public LinkedList(int val) {
 		head = new Node(val);
+		tail = null;
 		listLength = 0;
 	}
 	
@@ -17,7 +19,34 @@ public class LinkedList {
 			current = current.next;
 		}
 		current.next = end;
+		current.next.next = tail;
 	}
+	
+	public void addToHead(int d) {
+		Node first = new Node(d); 
+		Node current = head;
+		int prevHeadVal;
+		//Save prev head value
+		prevHeadVal = current.value;
+		
+		//Save linked list values after the head
+		Node saveNextNode = current.next;
+		
+		//change head value
+		current.value = first.value;
+	
+		first.value = prevHeadVal;
+		
+		current.next = first;
+		//point back to the rest of the list 
+		current.next.next = saveNextNode;
+		
+		
+		
+		
+		
+	}
+	
 	
 	public void deleteNode(int d) {
 		Node current = head;
@@ -57,7 +86,7 @@ public class LinkedList {
 	
 	}
 	
-	public void moveNodeFromAToB(int i, int j) {
+	public void swapNodeValue(int i, int j) {
 		Node current1 = head;
 		Node current2 = head;
 		
@@ -73,8 +102,9 @@ public class LinkedList {
 			current2 = current2.next;
 			traverse2++;
 		}
-		
-		current1.value = current2.value;
+		int saveJNodeVal = current2.next.value;
+		current2.next.value = current1.next.value;
+		current1.next.value = saveJNodeVal;
 	
 	}
 	
