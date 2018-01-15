@@ -41,10 +41,6 @@ public class LinkedList {
 		//point back to the rest of the list 
 		current.next.next = saveNextNode;
 		
-		
-		
-		
-		
 	}
 	
 	
